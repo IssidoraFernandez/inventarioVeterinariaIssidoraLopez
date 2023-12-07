@@ -25,4 +25,5 @@ urlpatterns = [
     path('cuentas/', include("django.contrib.auth.urls")),
     # path('panelAdmin/',TemplateView.as_view(template_name='home.html'),name='home'),#
     path('panelAdmin/',panelAdmin , name='panelAdmin'),
+    path('signUp/',signUp , name='signUp'),
 ]
