@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include 
 from django.views.generic.base import TemplateView
 from gestorUser.views import *
+from gestorProducts.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     # path('panelAdmin/',TemplateView.as_view(template_name='home.html'),name='home'),#
     path('panelAdmin/',panelAdmin , name='panelAdmin'),
     path('signUp/',signUp , name='signUp'),
+    path('productos/', agregarProducto, name='agregarProductos')
 ]

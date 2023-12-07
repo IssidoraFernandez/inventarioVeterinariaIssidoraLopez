@@ -21,12 +21,9 @@ def signUp(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index.html')
+            return redirect('index')
 
 
     return render(request, 'signUp.html', {'form': form})
     
 
-
-"""crear home pa
-"""
