@@ -24,6 +24,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -31,9 +32,14 @@
             <tr>
                 <td>{{usuario.id}}</td>
                 <td>{{usuario.usuario.username}}</td>
-                <td>{{usuario.nombre}}</td>
-                <td>{{usuario.apellido}}</td>
-                <td>{{usuario.email}}</td>
+                <td>{{usuario.usuario.first_name}}</td>
+                <td>{{usuario.usuario.last_name}}</td>
+                <td>{{usuario.usuario.email}}</td>
+                <td> 
+                    <a class="btn btn-outline-success" href="{% url "editarUsuario" usuario.id %}" class="btn btn-warning btn-sm">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %} 
         </tbody>

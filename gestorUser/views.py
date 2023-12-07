@@ -23,19 +23,27 @@ def signUp(request):
             form.save()
             return redirect('panelAdmin')
 
-
     return render(request, 'signUp.html', {'form': form})
 
 def editarUsuario(request, id):
     usuario = Usuario.objects.get(id=id)
-    if request.method == 'GET':
-        form = SignUpForm(instance=usuario)
-    else:
+    form = SignUpForm(instance=usuario)
+
+    # Definir 'data' fuera del bloque if para asegurar su disponibilidad
+    data = {
+        'form': form
+    }
+
+    if request.method == 'POST':
         form = SignUpForm(request.POST, instance=usuario)
         if form.is_valid():
             form.save()
-        return redirect('panelAdmin')
-    return render(request, 'signUp.html', {'form': form})
+            return http.HttpResponseRedirect('/listarUsuarios')
+
+        # Actualizar 'data' con el nuevo formulario si no es válido
+        data['form'] = form
+
+    return render(request, 'editarUsuario.html', data)
 
 
 def listarUsuarios(request):
