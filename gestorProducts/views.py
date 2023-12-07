@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import ProductoForm, CategoriaForm
+from .forms import ProductoForm
 
 # Create your views here.
 
@@ -10,4 +10,5 @@ def agregarProducto(request):
         if form.is_valid():
             form.save()
             return render(request, 'productosForm.html')
-    return render(request, 'productosForm.html')
+        
+    return render(request, 'productosForm.html', {'form': form})

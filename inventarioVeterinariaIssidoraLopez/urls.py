@@ -27,5 +27,7 @@ urlpatterns = [
     # path('panelAdmin/',TemplateView.as_view(template_name='home.html'),name='home'),#
     path('panelAdmin/',panelAdmin , name='panelAdmin'),
     path('signUp/',signUp , name='signUp'),
-    path('productos/', agregarProducto, name='agregarProductos')
+    path('productos/', agregarProducto, name='agregarProductos'),
+    path('editarUsuario/<int:id>', editarUsuario, name='editarUsuario'),
+    path('listarUsuarios/', listarUsuarios, name='listarUsuarios'),
 ]
