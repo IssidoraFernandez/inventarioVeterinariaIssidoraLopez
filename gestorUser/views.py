@@ -1,3 +1,4 @@
+from django import http
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Usuario
@@ -29,7 +30,6 @@ def editarUsuario(request, id):
     usuario = Usuario.objects.get(id=id)
     form = SignUpForm(instance=usuario)
 
-    # Definir 'data' fuera del bloque if para asegurar su disponibilidad
     data = {
         'form': form
     }
@@ -40,7 +40,7 @@ def editarUsuario(request, id):
             form.save()
             return http.HttpResponseRedirect('/listarUsuarios')
 
-        # Actualizar 'data' con el nuevo formulario si no es válido
+
         data['form'] = form
 
     return render(request, 'editarUsuario.html', data)
