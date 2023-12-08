@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2023 a las 01:13:09
+-- Tiempo de generación: 08-12-2023 a las 08:44:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -124,9 +124,9 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$600000$wVWbDhakN2rBx1l15MHPFy$f9SWXpq4wBxTBODtcEOnUWy4LJ4t8a5munxqmReqcYk=', '2023-12-07 23:54:10.067658', 1, 'admin', '', '', '', 1, 1, '2023-12-07 05:16:47.104528'),
-(2, 'pbkdf2_sha256$600000$RizaR243EYpIlO3UAz0BBR$leB+P2GDDKdU4ZrSNj6GTnWRTFfjxQuEvd3gn7DY1ko=', '2023-12-08 00:09:12.211685', 0, 'issi', 'hatsune', 'miku', 'ddjcj@gmail.com', 0, 1, '2023-12-07 05:26:05.486162'),
-(3, 'pbkdf2_sha256$600000$3sGbaxPAQO7t8s3T6f7xq1$q/hMV6WbGbAT+yG5jVu4cL2hFzBhsOSY4yz3wMapVfI=', '2023-12-07 23:53:30.833293', 0, 'pelao', 'vicente', 'paredes', 'slkdd@gmail.com', 0, 1, '2023-12-07 06:13:13.124459');
+(1, 'pbkdf2_sha256$600000$wVWbDhakN2rBx1l15MHPFy$f9SWXpq4wBxTBODtcEOnUWy4LJ4t8a5munxqmReqcYk=', '2023-12-08 07:36:34.139034', 1, 'admin', '', '', '', 1, 1, '2023-12-07 05:16:47.104528'),
+(2, 'pbkdf2_sha256$600000$RizaR243EYpIlO3UAz0BBR$leB+P2GDDKdU4ZrSNj6GTnWRTFfjxQuEvd3gn7DY1ko=', '2023-12-08 07:23:40.492281', 0, 'issi', 'hatsune', 'miku', 'ddjcj@gmail.com', 0, 1, '2023-12-07 05:26:05.486162'),
+(3, 'pbkdf2_sha256$600000$3sGbaxPAQO7t8s3T6f7xq1$q/hMV6WbGbAT+yG5jVu4cL2hFzBhsOSY4yz3wMapVfI=', '2023-12-08 07:36:56.542141', 0, 'pelao', 'vicente', 'paredes', 'slkdd@gmail.com', 0, 1, '2023-12-07 06:13:13.124459');
 
 -- --------------------------------------------------------
 
@@ -252,7 +252,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('nnyb88stzy7tj22tgarad2di9s2opj7s', '.eJxVjDsOwjAQBe_iGln-7G4MJX3OYO3aDgmgWIqTCnF3iJQC2jcz76Uib-sYt1aWOGV1UU6dfjfh9CjzDvKd51vVqc7rMoneFX3Qpvuay_N6uH8HI7fxWwvieWCyZKXznUhmGShY8CLkBZ1AcCkBIRkEww6BUkLMIRvDDKDeH-DCN4g:1rBOQa:twQZU9OeRSYvaiCBRbvbxlbsgwiTmOcglhLWdZlFsMA', '2023-12-22 00:09:12.227374');
+('nd9oo3qhoqfygusmfrs0nq7imvd90ckz', '.eJxVjM0KwyAQhN_FcxFXd6P02HufQVZXatqikJ9T6Ls3gRxamNN838ymIq9LjetcpjiKuiqnLr9d4vwq7QDy5PboOve2TGPSh6JPOut7l_K-ne7fQeW57mtvDCKmgI6Dt8MeMgFA2CJ6BHAOJYkklykDDES-eGK0QYIxTFZ9vpYXNgo:1rBVPs:PR7-xRcp0ppE0YZaKxabhhdrDNRIKBdRn9-p9LZjQzc', '2023-12-22 07:36:56.546320');
 
 -- --------------------------------------------------------
 
@@ -265,6 +265,14 @@ CREATE TABLE `gestorproducts_categoria` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `gestorproducts_categoria`
+--
+
+INSERT INTO `gestorproducts_categoria` (`id`, `nombre`, `descripcion`) VALUES
+(1, 'Insumos Medicos', 'Materiales esenciales para procedimientos de atención médica, como guantes, jeringas, vendajes, desinfectantes y mascarillas. Verificar cantidades y caducidades regularmente.'),
+(2, 'Inventario Farmacia', 'Medicamentos y productos farmacéuticos para tratamientos veterinarios, incluyendo antibióticos, analgésicos, vacunas y suplementos. Controlar lotes y vencimientos con atención');
 
 -- --------------------------------------------------------
 
@@ -280,6 +288,22 @@ CREATE TABLE `gestorproducts_producto` (
   `stock` int(11) NOT NULL,
   `categoria_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `gestorproducts_producto`
+--
+
+INSERT INTO `gestorproducts_producto` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `categoria_id`) VALUES
+(2, 'guantes quirurgicos', 'guantes de latex esterilizados', 2000, 40, 1),
+(3, 'Mascarilla', 'Mascarilla KN95 para bloquear bacterias', 1000, 50, 1),
+(4, 'Pechera desechable', 'Pechera tamaño estándar', 500, 20, 1),
+(5, 'Gasa', 'Gasa 5 x 5 cm esteril', 3000, 20, 1),
+(6, 'Suero fisiológico', 'Suero de 500 mL', 2500, 20, 1),
+(7, 'Transimed', 'Suspensión ótica para perros y gatos', 12000, 30, 2),
+(8, 'Ocubiotic', 'Ocubiotic colirio con efecto triple antibiótico.', 13000, 20, 2),
+(9, 'Naxpet', 'Analgésico, Antipirético y Antiinflamatorio no esteroidal', 10000, 25, 2),
+(10, 'Revolution Plus', 'Revolution Plus 1,25 A 2,5Kg $12.990Precio  Revolution Plus Gatos es un antiparasitario interno y externo recomendado para gatos y gatitos de 8 semanas de edad o mayores', 12000, 15, 2),
+(11, 'Broadline', 'antiparasitario interno y externo para gatos de 2,5 Kg a 7.5 Kg de peso.', 13000, 30, 2);
 
 -- --------------------------------------------------------
 
@@ -464,13 +488,13 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT de la tabla `gestorproducts_categoria`
 --
 ALTER TABLE `gestorproducts_categoria`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `gestorproducts_producto`
 --
 ALTER TABLE `gestorproducts_producto`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `gestoruser_usuario`

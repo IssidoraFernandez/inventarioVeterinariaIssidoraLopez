@@ -31,9 +31,9 @@ urlpatterns = [
     path('editarUsuario/<int:id>', editarUsuario, name='editarUsuario'),
     path('listarUsuarios/', listarUsuarios, name='listarUsuarios'),
     path('listarProductos/', listarProductos, name='listarProductos'),
-    path('editarProducto/<int:id>', editarProducto, name='editarProducto'),
-    path('eliminarProducto/<int:id>', eliminarProducto, name='eliminarProducto'),
+    path('editarProducto/<int:id>/', editarProducto, name='editarProducto'),
+    path('eliminarProducto/<int:id>/', eliminarProducto, name='eliminarProducto'),
     path('agregarCategoria/', agregarCategoria, name='agregarCategoria'),
-    path('editarCategoria/<int:id>', editarCategoria, name='editarCategoria'),
     path('listarCategorias/', listarCategorias, name='listarCategorias'),
+    path('eliminarCategoria/<int:id>/', eliminarCategoria, name='eliminarCategoria'),
 ]

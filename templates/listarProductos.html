@@ -14,7 +14,7 @@
         Listado de productos
     </div>
 
-    {% if producto %}
+    {% if productos %}
 
     <table class= "table" id="miTabla2">
         <thead>
@@ -31,16 +31,17 @@
         <tbody>
             {% for producto in productos %}
             <tr>
-                <td>{{producto.id}}</td>
-                <td>{{producto.nombre}}</td>
-                <td>{{producto.descripcion}}</td>
-                <td>{{producto.precio}}</td>
-                <td>{{producto.stock}}</td>
-                <td>{{producto.categoria}}</td>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.stock }}</td>
+                <td>{{ producto.categoria }}</td>
                 <td> 
-                    <a class="btn btn-outline-success" href="{% url "editarProducto" producto.nombre %}" class="btn btn-warning btn-sm">
+                    <a class="btn btn-outline-success" href="{% url "editarProducto" producto.id %}" class="btn btn-warning btn-sm">
                         <i class="bi bi-pencil-square"></i>
                     </a>
+                    <a class="btn btn-outline-danger" href= {% url 'eliminarProducto' producto.id %} ><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
             {% endfor %} 

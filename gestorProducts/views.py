@@ -43,7 +43,6 @@ def editarProducto(request, id):
 
 
 
-
 def esAdmin(user):
     return user.is_superuser
 
@@ -86,3 +85,9 @@ def editarCategoria(request, id):
 
     return render(request, 'editarCategoria.html', {'form': form})
 
+
+@user_passes_test(esAdmin)
+def eliminarCategoria(request, id):
+    categoria = Categoria.objects.get(id=id)
+    categoria.delete()
+    return http.HttpResponseRedirect('/listarCategorias')

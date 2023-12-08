@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Usuario
 from .forms import SignUpForm
+from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
 def personasIndex(request):
@@ -46,6 +47,11 @@ def editarUsuario(request, id):
     return render(request, 'editarUsuario.html', data)
 
 
+def esAdmin(user):
+    return user.is_superuser
+
+
+@user_passes_test(esAdmin)
 def listarUsuarios(request):
     usuarios = Usuario.objects.all()
     data = {

@@ -19,7 +19,7 @@ class ProductoForm(forms.ModelForm):
     descripcion = forms.CharField(max_length=200, required=True)
     precio = forms.IntegerField(required=True)
     stock = forms.IntegerField(required=True)
-    categoria = forms.CharField(max_length=50, required=True)
+    categoria = forms.ModelChoiceField(queryset=Categoria.objects.all())
 
     nombre.widget.attrs.update({'class': 'form-control'})
     descripcion.widget.attrs.update({'class': 'form-control'})
